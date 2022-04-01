@@ -25,7 +25,7 @@ Nimamo pa zagotovila, da bodo ti podatkovni tipi točno takšnih dolžin. Za pod
 
 Kazalci v jeziku C so pogosto trn v peti vsakega študenta. V vajah s kazalci ne bomo ustvarjali kompleksnih podatkovnih struktur, ampak bomo uporabljali njihov primarni namen -- "kazanje" na specifični naslov.
 
-*Kazalec je namreč zgolj spremenljivka, katere vrednost predstavlja naslov. Tip kazalca pa nam pove kakšnega tipa je spremenljivka katere vrednost je v kazalcu.*
+**Kazalec je namreč zgolj spremenljivka, katere vrednost predstavlja naslov. Tip kazalca pa nam pove pri katerem tipu ima vrednost na tistem naslov, nek smisel.**
 
 Kazalec določenega tipa definiramo tako, da poleg tipa dodamo zvezdico. \textbf{int*} predstavlja kazalec na spremenljivko tipa \textbf{int}. Naslov torej \textit{kaže} na 4 bajte, katerih vrednost predstavlja predznačeno celo število. Če imamo spremenljivko $a$ definirano kot \texttt{int a = 4;}, kazalec na spremenljivko dobimo z ukazom \texttt{int *p = \&a;}. Znak \& pred imenom spremenljivke namreč vrača njen naslov. Spodaj je podana koda običajnih ukazov, ki jih izvajamo s kazalci. Razlaga je podana v komentarjih:
 
