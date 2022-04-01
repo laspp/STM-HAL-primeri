@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "oprema.html",
+    "href": "oprema.html",
+    "title": "Oprema za vaje",
+    "section": "",
+    "text": "Slika 1: stm32f4discovery\n\n\nZa razvoj programov, razhroščevanje in programiranje razvojne plošče bomo uporabljali orodje STM32CubeIDE, ki se lahko uporablja za razvoj poljubnega mikrokrmilnika proizvajalca STMicroelectronics. Orodje je brezplačno in na voljo za vse operacijske sisteme, naložite si ga lahko na povezavi."
+  }
+]
