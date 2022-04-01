@@ -2,3 +2,51 @@
 title: "Osvežitev programskega jezika C"
 ---
 
+Gradivo, ki ga berete, ni mišljeno kot celostna ponovitev programskega jezika C. Namenjeno je osvetlitvi določenih podrobnosti, ki jih bomo pogosto uporabljali in na določene podrobnosti, ki so ob spoznavanju C-ja dostikrat spregledajo ali površno obdelajo.
+
+
+# Podatkovni tipi
+
+Klasični primitivni podatkovni tipi v C-ju so, upajmo da, dobro znani vsakemu izmed vas. Za predstavitev celih števil uporabljamo *char*, *short int* (ali krajše *short*), *int*, *long int* (krajše *long*) ter *long long int* (krajše *long long*). Vsi omenjeni tipi imajo tudi nepredznačene oblike, ki jih dobite tako, da pred tip dodate rezervirano besedo *unsigned*, na primer unsigned int*. @tbl-biti prikazuje število bitov, ki jih običajno zasede posamezen podatkovni tip.
+
+| Podatkovni tip | Število bitov (največkrat) |
+|---------|:-----|
+| char | 8 |
+| short | 16 |
+| int | 32 |
+| long | 32 |
+| long long | 64 |
+
+: Podatkovni tipi in njihova običajna dolžina v bitih. {#tbl-biti}
+
+Nimamo pa zagotovila, da bodo ti podatkovni tipi točno takšnih dolžin. Za podatkovni tip *char* vemo zgolj, da bo dolžina vsaj 8 bitov, lahko pa je tudi več. Pogosto bomo želeli bolj natančno določiti oziroma bolj jasno pokazati, koliko bitov naj zasede naša spremenljivka. Takrat bomo raje uporabili podatkovne tipe `int8_t`, `int16_t`, `int32_t`, `uint8_t`, `uint16_t`, `uint32_t`, ki so definirani v `<stdint.h>`. Dolžina tipov v bitih je tu podana kar v imenu, predpona `u` pa označuje nepredznačene tipe. Za te podatkovne tipe imamo zagotovilo, da če jih je na nekem sistemu mogoče uporabiti, bodo vedno pričakovanih dolžin.
+
+# Kazalci 
+
+Kazalci v jeziku C so pogosto trn v peti vsakega študenta. V vajah s kazalci ne bomo ustvarjali kompleksnih podatkovnih struktur, ampak bomo uporabljali njihov primarni namen -- "kazanje" na specifični naslov.
+
+*Kazalec je namreč zgolj spremenljivka, katere vrednost predstavlja naslov. Tip kazalca pa nam pove kakšnega tipa je spremenljivka katere vrednost je v kazalcu.*
+
+Kazalec določenega tipa definiramo tako, da poleg tipa dodamo zvezdico. \textbf{int*} predstavlja kazalec na spremenljivko tipa \textbf{int}. Naslov torej \textit{kaže} na 4 bajte, katerih vrednost predstavlja predznačeno celo število. Če imamo spremenljivko $a$ definirano kot \texttt{int a = 4;}, kazalec na spremenljivko dobimo z ukazom \texttt{int *p = \&a;}. Znak \& pred imenom spremenljivke namreč vrača njen naslov. Spodaj je podana koda običajnih ukazov, ki jih izvajamo s kazalci. Razlaga je podana v komentarjih:
+
+
+```cpp
+// definiramo kazalec
+int *p;
+// definiramo spremenljivko 
+int a = 26;
+
+p = &a; // kazalec kaze na a, recimo da se nahaja na naslovu 0x200
+*p = 12; // vrednost na naslovu 0x200 nastavimo na 12, kar pomeni da je vrednost a 12
+
+*(p+1) = 7; // vrednost na naslovu 0x204 nastavi na 7   
+// v zgornjem primeru s povecavo stevca za 1 pridemo do naslova 0x204 (0x200 + 0x4), do stirice pridemo, ker je na naslovu 0x200 spremenljivka tipa int, ki zaseda 4 bajte
+
+// cesa ne smemo poceti s kazalci
+// vse od spodaj nastetega je slaba praksa ali pa neveljaven ukaz
+p = a; // TEGA NE POCNITE! S tem bi naslov kazalca spremenili na 12. Kaj je na naslovu 12 obicajno ne vemo!
+*a = 6; // TUDI TEGA NE POCNITE! S tem ukazom bi vrednost na naslov 12 nastavili na 6.
+
+&a = 4; // neveljaven ukaz
+&p = 6; // neveljaven ukaz
+```

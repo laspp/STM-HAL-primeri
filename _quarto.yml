@@ -11,6 +11,6 @@ website:
         contents:
           - oprema.qmd
           - uvod-v-c.qmd
-      - section: "Layout"
+      - section: "GPIO"
         contents:
-          - index.qmd
+          - naivno.qmd
