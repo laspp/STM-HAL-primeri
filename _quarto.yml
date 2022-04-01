@@ -1,0 +1,16 @@
+project:
+  type: website
+language: prevodi.yml
+website:
+  title: "STM-HAL-vaje"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:  
+      - section: "Uvod"
+        contents:
+          - oprema.qmd
+          - uvod-v-c.qmd
+      - section: "Layout"
+        contents:
+          - index.qmd

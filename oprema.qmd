@@ -1,0 +1,11 @@
+---
+title: "Oprema za vaje"
+---
+
+\section*{Oprema za vaje}
+
+Za izvedbo vaj in nalog, ki jih berete, potrebujete razvojno ploščo STM32F4 Discovery, ki ga lahko vidite na @fig-discovery.
+
+![stm32f4discovery](img/stm32f4discovery.jpg){#fig-discovery}
+
+Za razvoj programov, razhroščevanje in programiranje razvojne plošče bomo uporabljali orodje STM32CubeIDE, ki se lahko uporablja za razvoj poljubnega mikrokrmilnika proizvajalca STMicroelectronics. Orodje je brezplačno in na voljo za vse operacijske sisteme, naložite si ga lahko na [povezavi](https://www.st.com/en/development-tools/stm32cubeide.html).
